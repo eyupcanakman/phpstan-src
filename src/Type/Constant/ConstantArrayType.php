@@ -157,7 +157,7 @@ class ConstantArrayType implements Type
 			if ($unsealed[0] instanceof StrictMixedType && !$unsealed[0] instanceof TemplateStrictMixedType) {
 				$unsealed[0] = (new UnionType([new StringType(), new IntegerType()]))->toArrayKey();
 			}
-		} elseif (BleedingEdgeToggle::isBleedingEdge()) {
+		} else {
 			$never = new NeverType(true);
 			$unsealed = [$never, $never];
 		}

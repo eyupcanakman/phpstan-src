@@ -63,11 +63,8 @@ final class ConstantArrayTypeBuilder
 
 	public static function createEmpty(): self
 	{
-		$unsealed = null;
-		if (BleedingEdgeToggle::isBleedingEdge()) {
-			$never = new NeverType(true);
-			$unsealed = [$never, $never];
-		}
+		$never = new NeverType(true);
+		$unsealed = [$never, $never];
 		return new self([], [], [0], [], TrinaryLogic::createYes(), $unsealed);
 	}
 
